@@ -1,3 +1,15 @@
-<p>
-  gem works!
-</p>
+<div class="card"> <img class="card-img-top" src="{{gem.fullImagePath}}" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">{{gem.name}}</h5>
+        <div class="card-text">
+            <p>{{gem.price | currency}}</p>
+            <p>{{gem.inventory}}</p>
+        </div>
+
+        <div class="buttons">
+            <app-tabs [gem]="gem"></app-tabs>
+            <button *ngIf="gem.inventory > 0" (click)="addToCart()" class="btn btn-default">Add to Cart</button>
+            <button *ngIf="gem.inventory <= 0" class="btn btn-danger" disabled>Sold Out</button>
+        </div>
+    </div>
+</div>

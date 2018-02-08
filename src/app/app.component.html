@@ -1,13 +1,7 @@
-<!--<p> {{ title | uppercase }}!</p>
-<p>{{"I like ".concat("hamburgers")}}</p>
-<p>{{(4+2) | currency}}</p>
-<p>{{now | date}}</p>
--->
+<app-navbar [cart]="cart"></app-navbar>
+<main class="container-fluid">
+    <div class="row">
+        <app-gem class="col-12 col-sm-6 col-md-4" [gem]="g" *ngFor="let g of gems" [cart]="cart"></app-gem>
+    </div>
+</main>
 
-<app-navbar></app-navbar>
-
-<!--
-<app-gem></app-gem>
-<app-gem></app-gem>
-<app-gem></app-gem>
--->

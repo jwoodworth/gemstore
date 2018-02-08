@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { cartmodel } from '../../cartmodel';
 
 @Component({
   selector: 'app-navbar',
@@ -6,10 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+    @Input() cart:cartmodel;
+    
+    /* Best way to handle small fairly static  array */
+    
+ links = [{
+        text: 'Home',
+        href: '/Home'
+    }, {
+        text: 'Account',
+        href: '/Account'
+    }, {
+      //  text: 'Cart',
+    //    href: '/Cart'
+    }];
+    
   constructor() { }
 
   ngOnInit() {
   }
-
 }
