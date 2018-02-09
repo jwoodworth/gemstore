@@ -13,10 +13,10 @@ export class NavbarComponent implements OnInit {
     
  links = [{
         text: 'Home',
-        href: '/Home'
+        href: '/home'
     }, {
         text: 'Account',
-        href: '/Account'
+        href: '/account'
     }, {
       //  text: 'Cart',
     //    href: '/Cart'
