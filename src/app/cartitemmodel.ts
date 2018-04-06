@@ -1,5 +1,5 @@
 //cartitemmodel.ts
-export class cartitemmodel{
+export class CartItemModel{
     gemid: number;
     name: string;
     unitprice: number;

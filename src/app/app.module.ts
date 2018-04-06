@@ -8,12 +8,15 @@ import { GemComponent } from './gem/gem.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { ReviewsComponent } from './reviews/reviews.component';
-import { AvatarService } from './avatar.service';
+
 import { AppRoutingModule } from './/app-routing.module';
 import { CartComponent } from './cart/cart.component';
 import { AccountComponent } from './account/account.component';
 import { HomeComponent } from './home/home.component';
 
+import { AvatarService } from './avatar.service';
+import { GemsService } from './gems.service';
+import { CartService } from './cart.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,7 @@ import { HomeComponent } from './home/home.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [AvatarService],
+  providers: [AvatarService, GemsService, CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

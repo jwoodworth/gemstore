@@ -1,24 +1,24 @@
 import { Component, OnInit, Input } from '@angular/core';
-
-import { GemModel } from '../../gemmodel';
-
-import { cartmodel } from '../../cartmodel';
+import { GemModel } from '../gemmodel';
+import { CartModel } from '../cartmodel';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-gem',
   templateUrl: './gem.component.html',
   styleUrls: ['./gem.component.css']
 })
+
 export class GemComponent implements OnInit {
 
     @Input() gem:GemModel;
-    @Input() cart:cartmodel;
+    cart: CartModel;
     
     
-       addToCart() {
-        this.gem.inventory = this.gem.inventory - 1;
-        this.cart.totalquantity = this.cart.totalquantity + 1;
-        if (this.cart.items.map((x) => x.gemid).indexOf(this.gem.id) === -1) {
+   addToCart() {
+       this.gem.inventory = this.gem.inventory - 1;
+       this.cart.totalquantity = this.cart.totalquantity + 1;
+       if (this.cart.items.map((x) => x.gemid).indexOf(this.gem.id) === -1) {
             this.cart.items.push({
                 gemid: this.gem.id,
                 name: this.gem.name,
@@ -32,9 +32,10 @@ export class GemComponent implements OnInit {
 } 
        
 
-    constructor() { }
+  constructor(private cartService: CartService) {}
 
-    ngOnInit() { 
+    ngOnInit() {
+        this.cart = this.cartService.cart;  
     } 
 
-    }
+}

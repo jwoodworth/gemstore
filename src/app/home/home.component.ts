@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { GemModel } from '../gemmodel';
+import { GemsService } from '../gems.service';
+
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+    gems: GemModel[];
+    
+    constructor(private gemsService: GemsService) {
+    }
 
   ngOnInit() {
+    this.gemsService.getGems().subscribe(results => {this.gems = results;});  
   }
 
 }
